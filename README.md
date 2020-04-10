@@ -60,11 +60,13 @@ Your USB WiFi dongle should also be plugged in the RPi during all the procedure.
 	If you want to port the driver for other arch (e.g i386) you need to change the platform configuration in Makefile.
 	To ensure the RPi arch make compatibility, the Makefile has been configured to **BCM2709**:
 	
+	```sh
 	...
 	CONFIG_PLATFORM_I386_PC = n
 	CONFIG_PLATFORM_BCM2709 = y
 	CONFIG_PLATFORM_ANDROID_X86 = n
 	...
+	```
 
 4. Insert modules in Linux Kernel:
 	
@@ -85,7 +87,7 @@ Notice that kernel version for `insmod` may need to get it right.
 	$ lsusb | grep RTL8188
 	```
 	
-7. Edit the config file wpa_supplicant.conf:
+7. Edit the config file **wpa_supplicant.conf**:
 	
 	```sh
 	$ sudo geany /etc/wpa_supplicant/wpa_supplicant.conf
@@ -95,7 +97,8 @@ Notice that kernel version for `insmod` may need to get it right.
 	For example purposes, i'll use my Access Point `CarlosHouse_Hotspot` and password: `62abc1o51l2j`.
 
 	This information will be included in the file and his content should be exactly as follows:
-
+	
+	```sh
 	ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 	ap_scan=1
 	update_config=1
@@ -104,14 +107,16 @@ Notice that kernel version for `insmod` may need to get it right.
 	ssid="CarlosHouse_Hotspot"
 	psk="62abc1o51l2j"
 	}
+	```
 
-8. Edit the interfaces file:
+8. Edit the **interfaces** file:
 
 	```sh
 	$ sudo geany /etc/network/interfaces
 	```
 	The file content should be modified to be exactly as follows:	
-
+	
+	```sh
 	# Include files from /etc/network/interfaces.d:
 	source-directory /etc/network/interfaces.d
 	 
@@ -123,6 +128,7 @@ Notice that kernel version for `insmod` may need to get it right.
 	 
 	allow-hotplug wlan0
 	iface wlan0 inet manual
+	```
 	
 9. Restart RPi. When the RPi has restarted, you should now noticed the Wifi icon connected to the SSID you entered in step 7:
 
