@@ -50,7 +50,6 @@ Your USB WiFi dongle should also be plugged in the RPi during all the procedure.
 3. Compile and install the driver:
 	
 	```sh
-	$ cd rtl8188eus
 	$ make all
 	$ make install
 	```
