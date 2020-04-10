@@ -1,4 +1,4 @@
-Enable Wi-Fi USB dongles using Realtek RTL8188EUS and other RTL818xxxx based chips in Raspberry Pi 1, 2 and 3.
+Enable Wi-Fi USB dongles using Realtek RTL818xxxx based chips in RPi 1, 2 and 3.
 ====
 
 Fixing problems enabling RTL8188EUS, RTL8188EU, RTL8188ETV and other RTL818xxx chips in Raspberry Pi Debian based distros.
